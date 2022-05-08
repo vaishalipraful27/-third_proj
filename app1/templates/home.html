@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+   
+   {% block content %}
+<h1>Welcome to Homepage</h1>
+{{user}}
+{% if user.is_authenticated %}
+      
+      <li class="nav-item">
+        <a class="nav-link" href= "{% url 'logout'%}">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+      </li>
+
+      {% else %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
+
+      {% endif %}
+   {% endblock %}
